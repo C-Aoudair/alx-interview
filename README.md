@@ -25,7 +25,7 @@ Interview Algorithm practice
 ---
 
 ## Author
-* **Aoudair Chakib** (@C-Aoudair) - [<img src="https://img.shields.io/badge/Portfolio-20d6fe.svg?&style=plastic"/>](http://web-01.aoudaie.tech/RecipeRise/)
+* **Aoudair Chakib** (@C-Aoudair) - [<img src="https://img.shields.io/badge/Portfolio-20d6fe.svg?&style=plastic"/>](http://web-01.aoudair.tech/RecipeRise/)
   [<img src="https://img.shields.io/badge/Twitter-1DA1F2.svg?&style=plastic&logo=twitter&logoColor=white"/>](https://twitter.com/AoudairC)
   [<img src="https://img.shields.io/badge/Linkedin-0A66C2.svg?&style=plastic&logo=linkedin&logoColor=white"/>](https://www.linkedin.com//)
   [<img src="https://img.shields.io/badge/GitHub-181717.svg?&style=plastic&logo=github&logoColor=white"/>](https://github.com/C-Aoudair)
