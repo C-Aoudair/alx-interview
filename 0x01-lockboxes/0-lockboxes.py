@@ -15,7 +15,9 @@ def canUnlockAll(boxes):
         openedBoxes.append(box)
 
         for neighbour in boxes[box]:
-            if neighbour not in boxesQueue and neighbour not in openedBoxes:
+            if neighbour not in boxesQueue and
+            neighbour not in openedBoxes and
+            neighbour < len(boxes):
                 boxesQueue.append(neighbour)
 
     if len(openedBoxes) == len(boxes):
