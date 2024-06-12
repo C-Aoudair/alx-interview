@@ -7,7 +7,6 @@ def minOperations(n: int) -> int:
         to reach that number of a character using just copy All and paste
         operations
     """
-    print(type(n))
     if n == 0 or type(n) != int:
         return 0
 
