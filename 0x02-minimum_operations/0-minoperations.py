@@ -7,14 +7,13 @@ def minOperations(n: int) -> int:
         to reach that number of a character using just copy All and paste
         operations
     """
-    if n == 0 or n == 1 or type(n) != int:
+    if n == 0 or n == 1 or (type(n) != int and type(n) != float):
         return 0
-    return sumOfPrimes(n)
+    return sumOfPrimes(int(n))
 
 
 def sumOfPrimes(n: int) -> int:
-    for i in range(1, n):
-        number = n - i
-        if not (n % number) and number != 1:
+    for number in range(n - 1, 1,  -1):
+        if not n % number:
             return int(n / number) + sumOfPrimes(number)
     return n
