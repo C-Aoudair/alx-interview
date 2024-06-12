@@ -12,3 +12,6 @@ n = 12
 print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
 print(f"35 -> {minOperations(35)}")
 print(f"100 -> {minOperations(100)}")
+print(minOperations(0))
+print(minOperations('hell'))
+print(minOperations(0.3))
