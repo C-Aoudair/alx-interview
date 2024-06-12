@@ -7,8 +7,6 @@ def minOperations(n: int) -> int:
         to reach that number of a character using just copy All and paste
         operations
     """
-    if n == 0 or n == 1 or (type(n) != int and type(n) != float):
-        return 0
     return sumOfPrimes(int(n))
 
 
