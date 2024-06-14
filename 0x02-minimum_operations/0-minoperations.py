@@ -6,12 +6,20 @@ def minOperations(n: int) -> int:
     """ task integer as an argument and return the minimum operation needed
         to reach that number of a character using just copy All and paste
         operations
+        Args:
+            n: integer number
+        Return:
+            the sum of prime factors that represent the number of operations
     """
-    return sumOfPrimes(int(n))
+    factors = []
+    prime = 2
 
+    while prime ^ 2 <= n:
+        while n % prime == 0:
+            factors.append(prime)
+            n = n / prime
+        prime += 1
+    if n > 1:
+        factors.append(n)
 
-def sumOfPrimes(n: int) -> int:
-    for number in range(n - 1, 1,  -1):
-        if not n % number:
-            return int(n / number) + sumOfPrimes(number)
-    return n
+    return sum(factors)
