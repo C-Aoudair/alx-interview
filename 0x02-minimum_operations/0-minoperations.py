@@ -11,6 +11,9 @@ def minOperations(n: int) -> int:
         Return:
             the sum of prime factors that represent the number of operations
     """
+    if n <= 1:
+        return 0
+
     factors = []
     prime = 2
 
@@ -22,4 +25,4 @@ def minOperations(n: int) -> int:
     if n > 1:
         factors.append(n)
 
-    return sum(factors)
+    return int(sum(factors))
