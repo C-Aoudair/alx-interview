@@ -28,7 +28,7 @@ def main():
     global counter, file_size, status_codes
 
     for line in sys.stdin:
-        match = re.match(r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(.*?)\] "GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$', line)
+        match = re.match(r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) *- *\[(.*?)\] "GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$', line)
         if not match:
             continue
 
