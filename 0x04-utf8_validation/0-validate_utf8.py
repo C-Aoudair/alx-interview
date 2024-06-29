@@ -4,39 +4,29 @@
 
 def validUTF8(data: list) -> bool:
     """Determines if a given data set represents a valid UTF-8 encoding"""
-    for i in range(len(data)):
-        data[i] = data[i] & 0xFF
 
-    i = 0
-    while i < len(data):
-        if data[i] >> 7 == 0:
-            i += 1
+    def is_continuation_byte(byte):
+        return (byte >> 6) == 0b10
 
-        elif data[i] >> 5 == 0b110:
-            if i + 1 >= len(data) or data[i + 1] >> 6 != 0b10:
+    numOfBytes = 0 # The number of bytes that the each utf8 character will be
+
+    for byte in data:
+        byte = byte & 0xFF # Ensure that the byte is less than 255
+
+        if numOfBytes == 0: # Recognize the utf-8 bytes pattern
+
+            if (byte >> 5) == 0b110: # For two bytes
+                numOfBytes = 1
+            elif (byte >> 4) == 0b1110: # For three bytes
+                numOfBytes = 2
+            elif (byte >> 3) == 0b11110: # For four bytes
+                numOfBytes = 3
+            elif (byte >> 7):
                 return False
-            i += 2
-
-        elif data[i] >> 4 == 0b1110:
-            if (
-                i + 2 >= len(data)
-                or data[i + 1] >> 6 != 0b10
-                or data[i + 2] >> 6 != 0b10
-            ):
-                return False
-            i += 3
-
-        elif data[i] >> 3 == 0b11110:
-            if (
-                i + 3 >= len(data)
-                or data[i + 1] >> 6 != 0b10
-                or data[i + 2] >> 6 != 0b10
-                or data[i + 3] >> 6 != 0b10
-            ):
-                return False
-            i += 4
 
         else:
-            return False
+            if not is_continuation_byte(byte):
+                return False
+            numOfBytes -= 1
 
-    return True
+    return numOfBytes == 0 # Ensure that all continuation bytes was checked
