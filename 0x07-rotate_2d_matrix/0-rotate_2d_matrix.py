@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ Implementation of rotate_2d_matrix function"""
 
 
