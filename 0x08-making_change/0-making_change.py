@@ -5,7 +5,7 @@
 def makeChange(coins, total):
     """makeChange function"""
     numOfCoins = 0
-    while(total):
+    while(total > 0):
         status = False
         for coin in reversed(sorted(coins)):
             if coin <= total:
