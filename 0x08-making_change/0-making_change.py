@@ -15,6 +15,9 @@ def makeChange(coins, total):
              Returns -1 if the total cannot be achieved
              with the given denominations.
     """
+    if total <= 0:
+        return 0
+
     coins.sort(reverse=True)
     coin_count = 0
 
