@@ -4,14 +4,16 @@
 
 def makeChange(coins, total):
     """makeChange function"""
-    if total == 0:
-        return 0
+    numOfCoins = 0
+    while(total):
+        status = False
+        for coin in reversed(sorted(coins)):
+            if coin <= total:
+                numOfCoins += 1
+                total -= coin
+                status = True
+                break
+        if not status:
+            return -1
 
-    for coin in reversed(sorted(coins)):
-        if coin <= total:
-            numOfCoins = makeChange(coins, total - coin)
-            if numOfCoins == -1:
-                return -1
-            return numOfCoins + 1
-
-    return -1
+    return numOfCoins
