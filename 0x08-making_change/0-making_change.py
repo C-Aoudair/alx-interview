@@ -4,7 +4,8 @@
 
 def makeChange(coins, total):
     """
-    Determines the minimum number of coins needed to make the given total.
+    Determines the minimum number of coins needed to make
+    the given total using dynamic programmng.
 
     Args:
         coins (list of int): A list of coin denominations available.
@@ -18,12 +19,16 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    coins.sort(reverse=True)
-    coin_count = 0
+    tabulation = [-1] * (total + 1)
+    tabulation[0] = 0
 
-    for coin in coins:
-        while total >= coin:
-            coin_count += 1
-            total -= coin
-
-    return coin_count if total == 0 else -1
+    for index in range(total + 1):
+        if tabulation[index] != -1:
+            for coin in coins:
+                newIndex = index + coin
+                if newIndex <= total and (
+                    tabulation[newIndex] == -1
+                    or tabulation[index] + 1 < tabulation[newIndex]
+                ):
+                    tabulation[index + coin] = tabulation[index] + 1
+    return tabulation[total]
