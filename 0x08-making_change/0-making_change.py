@@ -31,4 +31,5 @@ def makeChange(coins, total):
                     or tabulation[index] + 1 < tabulation[newIndex]
                 ):
                     tabulation[index + coin] = tabulation[index] + 1
+
     return tabulation[total]
