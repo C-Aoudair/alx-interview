@@ -1,44 +1,34 @@
 #!/usr/bin/python3
 """ contains island_perimeter function"""
 
-
 def island_perimeter(grid):
-    """takes a grid and compute the perimeter of the land island of it"""
-    if len(grid) > 100 or len(grid[0]) > 100:
-        return 0
+        """
+    Calculate the perimeter of the island in a 2D grid.
 
+    The grid contains 0s (water) and 1s (land). The perimeter is
+    the number of edges that are adjacent to water or
+    the grid boundary.
+
+    Args:
+        grid (list of list of int): A 2D grid representing the map.
+
+    Returns:
+        int: The perimeter of the island.
+    """
     perimeter = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if grid[i][j] == 0:
-                continue
+    rows, cols = len(grid), len(grid[0])
 
-            elif grid[i][j] == 1:
-                cell_perimeter = 0
-                try:
-                    if not grid[i][j + 1]:
-                        cell_perimeter += 1
-                except IndexError:
-                    cell_perimeter += 1
-                try:
-                    if not grid[i][j - 1]:
-                        cell_perimeter += 1
-                except IndexError:
-                    cell_perimeter += 1
-
-                try:
-                    if not grid[i + 1][j]:
-                        cell_perimeter += 1
-                except IndexError:
-                    cell_perimeter += 1
-
-                try:
-                    if not grid[i - 1][j]:
-                        cell_perimeter += 1
-                except IndexError:
-                    cell_perimeter += 1
-                perimeter += cell_perimeter
-            else:
-                return 0
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 1:
+                # Check all four possible sides
+                if j == 0 or grid[i][j - 1] == 0:
+                    perimeter += 1
+                if j == cols - 1 or grid[i][j + 1] == 0:
+                    perimeter += 1
+                if i == 0 or grid[i - 1][j] == 0:
+                    perimeter += 1
+                if i == rows - 1 or grid[i + 1][j] == 0:
+                    perimeter += 1
 
     return perimeter
