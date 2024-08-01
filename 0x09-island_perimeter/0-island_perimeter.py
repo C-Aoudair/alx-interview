@@ -5,7 +5,7 @@
 def island_perimeter(grid):
     """takes a grid and compute the perimeter of the land island of it"""
     if len(grid) > 100 or len(grid[0]) > 100:
-        return
+        return 0
 
     perimeter = 0
     for i in range(len(grid)):
@@ -39,6 +39,6 @@ def island_perimeter(grid):
                     cell_perimeter += 1
                 perimeter += cell_perimeter
             else:
-                return
+                return 0
 
     return perimeter
