@@ -2,7 +2,7 @@
 """ contains island_perimeter function"""
 
 def island_perimeter(grid):
-        """
+    """
     Calculate the perimeter of the island in a 2D grid.
 
     The grid contains 0s (water) and 1s (land). The perimeter is
