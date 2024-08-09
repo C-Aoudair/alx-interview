@@ -14,13 +14,14 @@ def isWinner(x, nums):
 
             p = 2
             Maria_turn = True
-            while(p * p <= n):
+            while(p <= n):
                 if (primes[p]):
+                    primes[p] = False
                     for i in range(p*p, n + 1, p):
                         primes[i] = False
                     Maria_turn = not Maria_turn
 
-                    p += 1
+                p += 1
 
             if (Maria_turn):
                 Ben += 1
