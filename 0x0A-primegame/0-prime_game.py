@@ -11,11 +11,11 @@ def isWinner(x, nums):
     max_num = max(nums)
 
     # Sieve of Eratosthenes to find all primes up to the maximum number in nums
-    is_prime = [True] * (max_num + 1)
-    try:
+    is_prime = [False, False] + [True] * (max_num - 1)
+    """try:
         is_prime[0], is_prime[1] = False, False
     except IndexError:
-        pass
+        pass"""
 
     p = 2
     while p * p <= max_num:
