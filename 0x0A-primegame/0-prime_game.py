@@ -26,11 +26,17 @@ def isWinner(x, nums):
         prime_count[i] = prime_count[i - 1] + (1 if is_prime[i] else 0)
 
     # Determine the winner for each round
+    rounds_number = 1
+
     for n in nums:
+        if rounds_number > x:
+            break
         if prime_count[n] % 2 == 1:
             Maria += 1
         else:
             Ben += 1
+
+        rounds_number += 1
 
     if Maria > Ben:
         return "Maria"
